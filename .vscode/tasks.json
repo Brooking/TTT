@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+     "tasks": [
+         {
+             "label": "build ut_board on WSL",
+             "type": "shell",
+             "command": "g++",
+             "args": [
+                 "-Wall",
+                 "-ggdb3",
+                 "-o",
+                 "/mnt/c/Users/arthurb/Projects/TTT/ut_board.out",
+                 "board.cpp",
+                 "ut_board.cpp"
+             ],
+             "group": {
+                 "kind": "build",
+                 "isDefault": true
+             }
+         }
+     ]
+ }
+ 
