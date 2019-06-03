@@ -48,6 +48,17 @@ void SetGet() {
 }
 
 //
+// set using location
+//
+void SetLocation() {
+    Board board;
+
+    bassert(board.Set(5,Spot::O));
+    bassert(board.Set(1,1,Spot::X) == false);
+    bassert(board.Get(1,1) == Spot::O);
+}
+
+//
 // winning!
 //
 void Wins() {
@@ -120,6 +131,7 @@ void ToString() {
 int main() {
     Construct();
     SetGet();
+    SetLocation();
     Wins();
     Cats();
     ToString();

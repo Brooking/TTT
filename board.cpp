@@ -32,7 +32,7 @@ Spot Board::Get(int row, int cell) {
 }
 
 //
-// Set a spot
+// Set a spot by row + cell
 //
 bool Board::Set(int row, int cell, Spot spot) {
     if (this->winner_ != Spot::empty) {
@@ -49,6 +49,13 @@ bool Board::Set(int row, int cell, Spot spot) {
     this->grid_[row][cell] = spot;
     CheckForWinner();
     return true;
+}
+
+//
+// Set a spot by location
+//
+bool Board::Set(int location, Spot spot) {
+    return this->Set((location-1)/3, (location-1)%3, spot);
 }
 
 //

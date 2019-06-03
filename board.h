@@ -33,6 +33,7 @@ public:
     Board();
     Spot Get(int row, int cell);
     bool Set(int row, int cell, Spot spot);
+    bool Set(int location, Spot spot);
     Spot Winner() {return this->winner_;}
     string ToString(Format format);
 
