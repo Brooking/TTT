@@ -1,0 +1,131 @@
+Configuring Windows 10 to Compile and Debug on WSL Ubuntu
+
+1. Install WSL on windows
+    a. Open a Powershell with admin priv
+    b. 'Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux'
+    c. Reboot
+    
+2. Install Ubuntu on WSL
+    a. Open the Windows store
+    b. Find the latest Ubuntu LTS
+    c. Click on it
+    d. Run the downloaded executable
+    e. When it starts, create a root user and password (for 'sudo' later)
+    
+3. Install build tools and debugger on Ubuntu
+    a. In Ubuntu terminal (type 'wsl' in windows search)
+    b. 'sudo apt-get install build-essential gdb'
+    
+4. Install git on windows
+    a. go to https://git-scm.com/
+    
+5. Install git on ubuntu (rarely used with WSL, but ...)
+    a. 'sudo apt install git'
+    
+6. COnfigure both git installations the same
+    b. 'git config --global user.email "you@example.com"'
+    c. 'git config --global user.name "your_name_from_github"'
+    d. 'git config --global core.autocrlf input'
+    
+7. Install Visual Studio Code on Windows
+    a. Open Windows Store
+    b. Search for Visual Studio Code
+    c. Install the Windows version of the "insiders" edition
+    
+8. Configure Visual Studio Code
+    (All inside VSCode)
+    a. Tell VSCode to use bash
+        i. 'Gear'->Settings->terminal.integrated.shell.windows = c:\\windows\\sysnative\\bash.executable
+        ii. restart VSCode
+        iii. Terminal->New Terminal should bring up a bash shell
+    b. Install language extensions
+        i. Click on the bottom icon on the left side (extensions, ctrl-shift-x)
+        ii. Install "C/C++" and "C++ Intellisense"
+    c. Install remote development extensions
+        i. Open extensions
+        ii. Install 'Remote Development'
+        
+9. Start VSCode from Ubuntu
+    a. Stop any running VSCode
+    b. In Ubuntu Terminal
+    c. 'code-insiders .'
+    d. (Yes, you want to allow access)
+    e. Notice: there is a 'wsl' down in the lower left, and files will open with linux paths
+    
+10. Continue configuring VSCode
+    a. Each extension that can be run in wsl, should be set to do so
+        i. Open extensions and look at the installed ones
+        ii. each one with a button to 'Install on WSL' should have the button clicked
+        iii. restart VSCode
+        
+11. Configuring your project
+    a. Configuring build paths (for pretty intellisense)
+        i. Ctrl+Shift+P -> Edit Configurations(JSON)
+        ii. "compilerPath": "usr/bin/g++"
+        iii. "intelliSenseMode": "gcc-x64"
+    b. Configure for building (although I usually use make from the terminal)
+        i. Ctrl+Shift+P -> 'Tasks: Configure Default Build Task' -> 'create tasks.json file from template'
+        ii. -> others
+        iii. Empty out the created task and replace it with:
+            {
+                "version": "2.0.0",
+                 "tasks": [
+                     {
+                         "label": "build <appname> on WSL",
+                         "type": "shell",
+                         "command": "g++",
+                         "args": [
+                             "-Wall",
+                             "-ggdb3",
+                             "-o",
+                             "/mnt/c/Users/<your windows username>/projects/<appname>/<appname>",
+                             "<cpp files...>"
+                         ],
+                         "group": {
+                             "kind": "build",
+                             "isDefault": true
+                         }
+                     }
+                 ]
+             }
+    c. Configuring for debugging
+        i. (They say you should just be able to try it and a configuration file will come up, but its broken)
+        ii. copy the launch.json into the .vscode directory under the project
+        iii. Change the 'program' value to point to your project file
+        iv. Ensure that 'preLaunchTask' is erased or commented out
+ 
+12. (...code in a project appears...)
+ 
+13. Building 
+    a. Building via VSCode  
+        i. Ctrl+Shift+B to run the building script entered above
+    b. building via make
+        i. Go to a Ubuntu terminal (either in VSCode or an external Terminal)
+        ii. cd to the project directory
+        iii. "make"
+        
+14. Debugging
+    a. To run without debugging, go to terminal and type "./<appname>"
+    b. To debug
+        i. In VSCode
+        ii. Click on the bug on the left (Ctrl+Shift+D)
+        iii. Select the config at the top that we made earlier
+        iv. Hit the green triangle
+    
+XX. Git notes
+    a. If you are using two-factor authentication, you must use a personal access token from command line
+        i. (Verify email address, if not done already)
+        ii. (upper right photo)->Settings->Developer settings->Personal access tokens
+        iii. ->Generate new token
+        iv. Give it a descriptive name
+        v. (in scopes or permissions)->repo
+        vi. ->Generate token
+        vii. ->click on clipboard to copy token
+        viii. (paste it somewhere safe)
+        ix. use it in place of the password on the command line
+    b. You may also need to update origin if repo is set to https
+        i. 'git remote -v'
+        ii. 'git remote remove origin'
+        iii. git remote add origin git@github.com:<user>/<repo>.git
+    
+
