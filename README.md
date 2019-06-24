@@ -14,10 +14,10 @@ Instructions
   * 'git config --global user.email "jblow@somewhere.com"
 * Download the TTT repository
   * In the browser:
-    * Log on to github.comGo to Github
-    * Search repsoitories for Brooking/TTT and open it
+    * Log on to github.com
+    * Search repositories for Brooking/TTT and open it
     * Click on the green "Clone or download" button
-    * click on the clipboard to copy the url
+    * Click on the clipboard to copy the url
   * Back to the terminal:
     * Make a spot for this project
       * 'cd ~' (which should take you to your home)
@@ -32,6 +32,3 @@ Instructions
   * 'make'
 * Run TTT
   * './game.out'
-    
-  
-
