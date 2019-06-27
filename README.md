@@ -25,7 +25,7 @@ Instructions
       * 'cd projects'
       * 'mkdir TTT'
       * 'cd TTT'
-    * 'git clone <paste>'
+    * 'git clone \<paste\>'
 * Install the build tools
   * 'sudo apt-get install build-essential manpages-dev'
 * Build TTT
