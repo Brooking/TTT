@@ -1,14 +1,15 @@
 #ifndef _HUMANPLAYER_H_
 #define _HUMANPLAYER_H_
 
-#include "player.h"
+#include "iplayer.h"
 
-class HumanPlayer : Player {
+class HumanPlayer : iPlayer {
 public:
     void Move(Board& board) override;
     string Name() override {return "Human";}
+    Spot GetSpot() override {return this->side;}
 
-    static Player* Create(Spot spot);
+    static iPlayer* Create(Spot spot);
 
 private:
     HumanPlayer(Spot spot) : side(spot) {}

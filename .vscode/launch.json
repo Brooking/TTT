@@ -8,7 +8,7 @@
             "name": "gdb tests",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/mnt/c/Users/arthurb/Projects/TTT/ut_board.out",
+            "program": "/mnt/c/Users/Brook/projects/TTT/ut_board.out",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

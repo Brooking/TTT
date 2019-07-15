@@ -3,7 +3,7 @@
 using namespace std;
 
 #include "board.h"
-#include "player.h"
+#include "iplayer.h"
 #include "humanPlayer.h"
 #include "computerPlayer.h"
 
@@ -11,7 +11,7 @@ int main() {
     cout << "Tic Tac Toe" << endl;
     Board board;
 
-    vector<Player*> player;
+    vector<iPlayer*> player;
     bool humanFirst = ((rand() % 2) == 0);
     if (humanFirst) {
         player.push_back(HumanPlayer::Create(Spot::X));
@@ -38,6 +38,6 @@ int main() {
     if (board.Winner() == Spot::cat) {
         cout << "cat game" << endl;
     } else {
-        cout << board.Winner() << " wins!" << endl;
+        cout << (board.Winner() == Spot::X ? "X" : "O") << " wins!" << endl;
     }
 }

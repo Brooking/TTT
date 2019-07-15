@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Player* HumanPlayer::Create(Spot spot) {
+iPlayer* HumanPlayer::Create(Spot spot) {
     return new HumanPlayer(spot);
 }
 

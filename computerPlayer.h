@@ -1,14 +1,15 @@
 #ifndef _COMPUTERPLAYER_H_
 #define _COMPUTERPLAYER_H_
 
-#include "player.h"
+#include "iplayer.h"
 
-class ComputerPlayer : Player {
+class ComputerPlayer : iPlayer {
 public:
     void Move(Board& board) override;
     string Name() override {return "Computer";}
+    Spot GetSpot() override {return this->side;}
 
-    static Player* Create(Spot spot);
+    static iPlayer* Create(Spot spot);
 
 private:
     ComputerPlayer(Spot spot) : side(spot) {}

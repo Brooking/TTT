@@ -9,7 +9,7 @@
                  "-Wall",
                  "-ggdb3",
                  "-o",
-                 "/mnt/c/Users/arthurb/Projects/TTT/ut_board.out",
+                 "/mnt/c/Users/Brook/projects/TTT/ut_board.out",
                  "board.cpp",
                  "ut_board.cpp"
              ],

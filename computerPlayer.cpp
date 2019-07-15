@@ -2,7 +2,7 @@
 #include "computerPlayer.h"
 using namespace std;
 
-Player* ComputerPlayer::Create(Spot spot) {
+iPlayer* ComputerPlayer::Create(Spot spot) {
     return new ComputerPlayer(spot);
 }
 
