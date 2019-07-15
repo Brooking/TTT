@@ -23,8 +23,6 @@ Instructions (for a pure Ubuntu install)
       * 'cd ~' (which should take you to your home)
       * 'mkdir projects'
       * 'cd projects'
-      * 'mkdir TTT'
-      * 'cd TTT'
     * 'git clone \<paste\>'
 * Install the build tools
   * 'sudo apt-get install build-essential manpages-dev'
