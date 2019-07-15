@@ -113,11 +113,15 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
         
 14. Debugging
     a. To run without debugging, go to terminal and type "./<appname>"
-    b. To debug
+    b. To debug via VSCode
         i. In VSCode
         ii. Click on the bug on the left (Ctrl+Shift+D)
         iii. Select the config at the top that we made earlier
         iv. Hit the green triangle
+    c. To debug via gdb
+        i. From terminal
+        ii. 'gdb ./<appname>"
+        iii. (gdb) r <command line args>
     
 XX. Git notes
     a. If you are using two-factor authentication, you must use a personal access token from command line
