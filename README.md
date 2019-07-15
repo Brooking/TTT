@@ -3,7 +3,7 @@ Console Tic Tac Toe
 
 ## A simple game to experiment with github collaboration.
 
-Instructions
+Instructions (for a pure Ubuntu install)
 * Install Ubuntu
 * Install git
   * Start a terminal
