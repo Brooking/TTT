@@ -19,23 +19,29 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
 4. Install git on windows
     a. go to https://git-scm.com/
     
-5. Install git on ubuntu (rarely used with WSL, but ...)
+5. Install git on ubuntu
     a. 'sudo apt install git'
     
-6. COnfigure both git installations the same
+6. Configure both git installations the same
     b. 'git config --global user.email "you@example.com"'
     c. 'git config --global user.name "your_name_from_github"'
     d. 'git config --global core.autocrlf input'
     
 7. Install Visual Studio Code on Windows
     a. Open Windows Store
-    b. Search for Visual Studio Code
-    c. Install the Windows version of the "insiders" edition
+    b. Install the Windows version of the "insiders" edition
+        i. Search for "visual studio"
+        ii. click on the "learn more" on the big Visual Studio banner
+        iii. (off to the right) click on "Free Download" in the Visual Studio Code area
+        iv. click on the green download
+        v. scroll down and click on the "Insiders build" link under "Want new features sooner?"
     
 8. Configure Visual Studio Code
     (All inside VSCode)
     a. Tell VSCode to use bash
-        i. 'Gear'->Settings->terminal.integrated.shell.windows = c:\\windows\\sysnative\\bash.executable
+        i. 'Gear'->Settings->Edit Settings in JSON
+        ii. add this line (including the quotes):
+                "terminal.integrated.shell.windows" : "c:\\windows\\sysnative\\bash.executable"
         ii. restart VSCode
         iii. Terminal->New Terminal should bring up a bash shell
     b. Install language extensions
@@ -60,9 +66,10 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
         
 11. Configuring your project
     a. Configuring build paths (for pretty intellisense)
-        i. Ctrl+Shift+P -> Edit Configurations(JSON)
-        ii. "compilerPath": "usr/bin/g++"
+        i. Ctrl+Shift+P -> "Edit Configurations(JSON)"
+        ii. "compilerPath": "/usr/bin/g++"
         iii. "intelliSenseMode": "gcc-x64"
+    (The next two are optional as I use make and gdb usually)
     b. Configure for building (although I usually use make from the terminal)
         i. Ctrl+Shift+P -> 'Tasks: Configure Default Build Task' -> 'create tasks.json file from template'
         ii. -> others
