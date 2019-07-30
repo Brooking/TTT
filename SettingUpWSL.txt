@@ -39,11 +39,14 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
 8. Configure Visual Studio Code
     (All inside VSCode)
     a. Tell VSCode to use bash
-        i. 'Gear'->Settings->Edit Settings in JSON
-        ii. add this line (including the quotes):
+        i. 'Gear'->Settings
+		ii. Ensure you are changing "User" (not "WSL" or "Workspace") 
+		iii. search for "terminal.integrated.shell.windows"
+		iv. "Edit Settings in JSON"
+        v. add this line, inside the {} (including the quotes):
                 "terminal.integrated.shell.windows" : "c:\\windows\\sysnative\\bash.executable"
-        ii. restart VSCode
-        iii. Terminal->New Terminal should bring up a bash shell
+        vi. restart VSCode
+        vii. Terminal->New Terminal should bring up a bash shell
     b. Install language extensions
         i. Click on the bottom icon on the left side (extensions, ctrl-shift-x)
         ii. Install "C/C++" and "C++ Intellisense"
