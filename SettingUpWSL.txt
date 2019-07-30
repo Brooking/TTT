@@ -43,8 +43,9 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
 		ii. Ensure you are changing "User" (not "WSL" or "Workspace") 
 		iii. search for "terminal.integrated.shell.windows"
 		iv. "Edit Settings in JSON"
-        v. add this line, inside the {} (including the quotes):
-                "terminal.integrated.shell.windows" : "c:\\windows\\sysnative\\bash.executable"
+        v. add these lines, inside the {} (including the quotes):
+                "terminal.integrated.shell.windows" : "c:\\windows\\sysnative\\bash.executable",
+		"terminal.integrated.shell.linux" " "/bin/bash"
         vi. restart VSCode
         vii. Terminal->New Terminal should bring up a bash shell
     b. Install language extensions
