@@ -22,12 +22,17 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
 5. Install git on ubuntu
     a. 'sudo apt install git'
     
-6. Configure both git installations the same
+6. Install ncurses on ubuntu
+    a. 'sudo apt-get update'
+    b. 'sudo apt-get install ncurses-dev'
+    	(or maybe 'apt install libncurses5-dev libncursesw5-dev')
+    
+7. Configure both git installations the same
     b. 'git config --global user.email "you@example.com"'
     c. 'git config --global user.name "your_name_from_github"'
     d. 'git config --global core.autocrlf input'
     
-7. Install Visual Studio Code on Windows
+8. Install Visual Studio Code on Windows
     a. Open Windows Store
     b. Install the Windows version of the "insiders" edition
         i. Search for "visual studio"
@@ -36,7 +41,7 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
         iv. click on the green download
         v. scroll down and click on the "Insiders build" link under "Want new features sooner?"
     
-8. Configure Visual Studio Code
+9. Configure Visual Studio Code
     (All inside VSCode)
     a. Tell VSCode to use bash
         i. 'Gear'->Settings
@@ -55,20 +60,20 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
         i. Open extensions
         ii. Install 'Remote Development'
         
-9. Start VSCode from Ubuntu
+10. Start VSCode from Ubuntu
     a. Stop any running VSCode
     b. In Ubuntu Terminal
     c. 'code-insiders .'
     d. (Yes, you want to allow access)
     e. Notice: there is a 'wsl' down in the lower left, and files will open with linux paths
     
-10. Continue configuring VSCode
+11. Continue configuring VSCode
     a. Each extension that can be run in wsl, should be set to do so
         i. Open extensions and look at the installed ones
         ii. each one with a button to 'Install on WSL' should have the button clicked
         iii. restart VSCode
         
-11. Configuring your project
+12. Configuring your project
     a. Configuring build paths (for pretty intellisense)
         i. Ctrl+Shift+P -> "Edit Configurations(JSON)"
         ii. "compilerPath": "/usr/bin/g++"
@@ -105,9 +110,9 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
         iii. Change the 'program' value to point to your project file
         iv. Ensure that 'preLaunchTask' is erased or commented out
  
-12. (...code in a project appears...)
+13. (...code in a project appears...)
  
-13. Building 
+14. Building 
     a. Building via VSCode  
         i. Ctrl+Shift+B to run the building script entered above
     b. building via make
@@ -115,7 +120,7 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
         ii. cd to the project directory
         iii. "make"
         
-14. Debugging
+15. Debugging
     a. To run without debugging, go to terminal and type "./<appname>"
     b. To debug via VSCode
         i. In VSCode
