@@ -27,6 +27,7 @@ Configuring Windows 10 to Compile and Debug on WSL Ubuntu
     b. 'sudo apt-get install ncurses-dev'
     	(or maybe 'apt install libncurses5-dev libncursesw5-dev')
 7. Massage the default Bash config so that ncurses will work properly
+   (notes on this problem at https://github.com/microsoft/terminal/issues/240)
     a. 'cd ~'
     b. 'nano .bashrc'
     c. go to the bottom of the file
